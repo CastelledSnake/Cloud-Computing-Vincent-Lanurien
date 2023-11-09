@@ -1,0 +1,28 @@
+name: GitHub Actions For TD 3
+run-name: ${{ github.actor }} is performing 4 GitHub Actions 🚀
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Perform-4-actions:
+    runs-on: ubuntu-latest
+  
+    strategy:
+      matrix:
+        node-version: [18.11.9]
+    
+    steps:
+      - name: Install the developpment version of Node.js (18.11.9)
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+        
+      - name: Install application dependencies
+        run: npm install
+    
+      - name: Compile the application, and execute unitests
+        run: |
+          npm run build
+          npx jest
+          
