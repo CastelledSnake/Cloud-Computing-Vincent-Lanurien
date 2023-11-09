@@ -10,10 +10,10 @@ jobs:
   
     strategy:
       matrix:
-        node-version: [18.11.9]
+        node-version: [18.18.2]
     
     steps:
-      - name: Install the developpment version of Node.js (18.11.9)
+      - name: Install the developpment version of Node.js (18.18.2)
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
