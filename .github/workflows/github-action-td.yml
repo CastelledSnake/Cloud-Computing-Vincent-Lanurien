@@ -27,5 +27,6 @@ jobs:
       - name: Compile the application, and execute unitests
         run: |
           npm run build
+          jest --config ./test/jest-e2e.json --forceExit
           npx jest
           

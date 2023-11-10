@@ -44,8 +44,12 @@ COPY --from=builder --chown=node:node /usr/src/app/src ./src
 # Open the appropriate port
 EXPOSE 4242
 
-# exécution
+#CMD npm run start # Ici, on n'a pas utilité de index.ts
+# Lanceent du conteneur pour communication simple :
 #CMD node dist/getsysinfos
-# Ici, on n'a pas utilité de index.ts
-#CMD npm run start 
-CMD npx jest
+
+# Lancement du conteneur pour tests :
+#CMD npx jest
+
+# Lancement du conteneur pour tests, sans génération d'erreur
+CMD npx jest --runInBand --forceExit
